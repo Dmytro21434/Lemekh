@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторне заняття №1 | Реєстрація</title>
+</head>
+<body>
+
+    <header>
+        <h1>Лабораторне заняття №1. Основи HTML</h1>
+        <p><a href="../index.html#labs">← Повернутися до списку робіт</a></p>
+    </header>
+
+    <hr>
+
+    <main>
+        <h2>Форма реєстрації користувача</h2>
+
+        <!-- Форма надсилає POST-запит на твоє посилання webhook -->
+        <form action="https://webhook.site/a007de40-2ad4-4a26-bece-c7ca98b0a97b" method="POST">
+            
+            <!-- Поле імені -->
+            <p>
+                <label for="first-name">Ім'я: *</label><br>
+                <input type="text" id="first-name" name="first_name" required placeholder="Введіть ім'я">
+            </p>
+
+            <!-- Поле прізвища -->
+            <p>
+                <label for="last-name">Прізвище: *</label><br>
+                <input type="text" id="last-name" name="last_name" required placeholder="Введіть прізвище">
+            </p>
+
+            <!-- Поле електронної пошти -->
+            <p>
+                <label for="user-email">Електронна пошта: *</label><br>
+                <input type="email" id="user-email" name="user_email" required placeholder="example@mail.com">
+            </p>
+
+            <!-- Поле паролю -->
+            <p>
+                <label for="user-password">Пароль: *</label><br>
+                <input type="password" id="user-password" name="user_password" required minlength="6" placeholder="Введіть пароль">
+            </p>
+
+            <!-- Підтвердження паролю -->
+            <p>
+                <label for="confirm-password">Підтвердження паролю: *</label><br>
+                <input type="password" id="confirm-password" name="password_confirmation" required placeholder="Повторіть пароль">
+            </p>
+
+            <!-- Додаткове поле: Дата народження -->
+            <p>
+                <label for="birth-date">Дата народження:</label><br>
+                <input type="date" id="birth-date" name="birth_date">
+            </p>
+
+            <!-- Додаткове поле: Стать -->
+            <p>
+                <label for="user-gender">Стать:</label><br>
+                <select id="user-gender" name="user_gender">
+                    <option value="" disabled selected>Оберіть стать</option>
+                    <option value="male">Чоловіча</option>
+                    <option value="female">Жіноча</option>
+                    <option value="other">Інше</option>
+                </select>
+            </p>
+
+            <p><small>* — поля, обов'язкові для заповнення</small></p>
+
+            <!-- Кнопки відправки та очищення -->
+            <p>
+                <input type="submit" value="Зареєструватися">
+                <input type="reset" value="Очистити">
+            </p>
+
+        </form>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p><a href="../index.html">← Назад на головну сторінку</a></p>
+    </footer>
+
+</body>
+</html>
