@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №3 | YouTube Flexbox</title>
+    <link rel="stylesheet" href="lab3.css">
+</head>
+<body>
+
+    <!-- 1. Верхня навігаційна панель (Header) -->
+    <header class="yt-header">
+        <div class="header-start">
+            <button class="btn-icon menu-btn" aria-label="Головне меню">&#9776;</button>
+            <a href="#" class="yt-logo">
+                <span class="logo-badge">&#9654;</span>
+                <span class="logo-title">YouTube</span>
+            </a>
+        </div>
+
+        <div class="header-center">
+            <form class="search-form" onsubmit="event.preventDefault();">
+                <input type="text" class="search-input" placeholder="Пошук">
+                <button type="submit" class="search-submit" title="Пошук">&#128269;</button>
+            </form>
+            <button class="btn-icon mic-btn" title="Голосовий пошук">&#127908;</button>
+        </div>
+
+        <div class="header-end">
+            <button class="btn-create">&#43; Створити</button>
+            <button class="btn-icon" title="Сповіщення">&#128276;</button>
+            <div class="profile-avatar" title="Мій профіль">Д</div>
+        </div>
+    </header>
+
+    <!-- 2. Головний Flex-контейнер (Sidebar + Content) -->
+    <div class="app-layout">
+
+        <!-- Лівий сайдбар -->
+        <aside class="yt-sidebar">
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active">
+                    <span class="nav-icon">&#127968;</span>
+                    <span class="nav-label">Головна</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="nav-icon">&#9889;</span>
+                    <span class="nav-label">Shorts</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="nav-icon">&#128250;</span>
+                    <span class="nav-label">Підписки</span>
+                </a>
+
+                <hr class="nav-separator">
+
+                <div class="sidebar-section-title">Ви</div>
+                <a href="#" class="sidebar-link">
+                    <span class="nav-icon">&#128193;</span>
+                    <span class="nav-label">Бібліотека</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="nav-icon">&#128340;</span>
+                    <span class="nav-label">Історія</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="nav-icon">&#9201;</span>
+                    <span class="nav-label">Переглянути пізніше</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-back-link">
+                <a href="../index.html#labs">← До списку лабораторних</a>
+            </div>
+        </aside>
+
+        <!-- Основна зона контенту -->
+        <main class="yt-content">
+            
+            <!-- Рядок фільтрів/тегів (Chips) -->
+            <div class="chips-container">
+                <button class="chip active">Усі</button>
+                <button class="chip">Музика</button>
+                <button class="chip">Комп'ютерне програмування</button>
+                <button class="chip">Відеоігри</button>
+                <button class="chip">Новини</button>
+                <button class="chip">Анімація</button>
+                <button class="chip">Веб-дизайн</button>
+                <button class="chip">Подкасти</button>
+                <button class="chip">Нещодавно завантажені</button>
+            </div>
+
+            <!-- Сітка карток відео на Flexbox -->
+            <section class="cards-grid">
+
+                <article class="video-card">
+                    <div class="thumb thumb-1">
+                        <span class="timestamp">14:20</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="author-avatar av-1">IT</div>
+                        <div class="card-text">
+                            <h3 class="video-title">Flexbox CSS: повна структура та практика верстки</h3>
+                            <p class="channel-name">Web Dev Academy &#10003;</p>
+                            <p class="stats">85 тис. переглядів &bull; 2 тижні тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="thumb thumb-2">
+                        <span class="timestamp">22:05</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="author-avatar av-2">CS</div>
+                        <div class="card-text">
+                            <h3 class="video-title">Основи комп'ютерних мереж та протоколи передачі</h3>
+                            <p class="channel-name">Computer Science Hub</p>
+                            <p class="stats">34 тис. переглядів &bull; 1 місяць тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="thumb thumb-3">
+                        <span class="timestamp">09:40</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="author-avatar av-3">JS</div>
+                        <div class="card-text">
+                            <h3 class="video-title">Сучасна верстка сайтів за допомогою HTML5 і CSS3</h3>
+                            <p class="channel-name">Frontend Mastery</p>
+                            <p class="stats">120 тис. переглядів &bull; 3 дні тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="thumb thumb-4">
+                        <span class="timestamp">18:15</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="author-avatar av-4">GH</div>
+                        <div class="card-text">
+                            <h3 class="video-title">Робота з Git та GitHub: коміти, гілки, публікація</h3>
+                            <p class="channel-name">Dev Tools UA</p>
+                            <p class="stats">48 тис. переглядів &bull; 4 місяці тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="thumb thumb-5">
+                        <span class="timestamp">31:50</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="author-avatar av-5">UI</div>
+                        <div class="card-text">
+                            <h3 class="video-title">Основи UX/UI дизайну та побудова компонентних сіток</h3>
+                            <p class="channel-name">Design Lab</p>
+                            <p class="stats">62 тис. переглядів &bull; 2 місяці тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="thumb thumb-6">
+                        <span class="timestamp">11:10</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="author-avatar av-6">TK</div>
+                        <div class="card-text">
+                            <h3 class="video-title">Тренди веброзробки та системного адміністрування 2026</h3>
+                            <p class="channel-name">Tech Insight</p>
+                            <p class="stats">19 тис. переглядів &bull; 5 днів тому</p>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

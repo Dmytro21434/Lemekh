@@ -1,0 +1,356 @@
+/* Базове скидання та кольори темної теми YouTube */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: #f1f1f1;
+    overflow-x: hidden;
+}
+
+/* ===================================================
+   1. HEADER (Flexbox)
+   =================================================== */
+.yt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #0f0f0f;
+    border-bottom: 1px solid #272727;
+}
+
+.header-start {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    color: #f1f1f1;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: #272727;
+}
+
+.yt-logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo-badge {
+    color: #ff0000;
+    font-size: 20px;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 1 640px;
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    background-color: #121212;
+    border: 1px solid #303030;
+    border-radius: 40px 0 0 40px;
+    color: #f1f1f1;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #1c62b9;
+}
+
+.search-submit {
+    width: 64px;
+    height: 40px;
+    background-color: #222222;
+    border: 1px solid #303030;
+    border-left: none;
+    border-radius: 0 40px 40px 0;
+    color: #f1f1f1;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-submit:hover {
+    background-color: #272727;
+}
+
+.mic-btn {
+    background-color: #222222;
+}
+
+.header-end {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-create {
+    background-color: #272727;
+    border: none;
+    color: #f1f1f1;
+    padding: 8px 14px;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-create:hover {
+    background-color: #383838;
+}
+
+.profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #065fd4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===================================================
+   2. APP LAYOUT (Sidebar + Main via Flexbox)
+   =================================================== */
+.app-layout {
+    display: flex;
+    height: calc(100vh - 56px);
+}
+
+.yt-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background-color: #0f0f0f;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 10px 14px;
+    color: #f1f1f1;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.sidebar-link:hover {
+    background-color: #272727;
+}
+
+.sidebar-link.active {
+    background-color: #272727;
+    font-weight: bold;
+}
+
+.nav-icon {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-separator {
+    border: none;
+    border-top: 1px solid #272727;
+    margin: 10px 0;
+}
+
+.sidebar-section-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #aaa;
+    padding: 6px 14px;
+}
+
+.sidebar-back-link a {
+    color: #3ea6ff;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 8px 14px;
+    display: inline-block;
+}
+
+.sidebar-back-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================================
+   3. CONTENT AREA & CHIPS (Flexbox)
+   =================================================== */
+.yt-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chips-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.chip {
+    background-color: #272727;
+    border: none;
+    color: #f1f1f1;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.chip:hover {
+    background-color: #3f3f3f;
+}
+
+.chip.active {
+    background-color: #f1f1f1;
+    color: #0f0f0f;
+    font-weight: 500;
+}
+
+/* ===================================================
+   4. VIDEO GRID (Flexbox)
+   =================================================== */
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 280px;
+    max-width: 420px;
+    cursor: pointer;
+}
+
+.thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 8px;
+}
+
+/* Кольорові градієнти прев'ю карток */
+.thumb-1 { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+.thumb-2 { background: linear-gradient(135deg, #2b5876, #4e4376); }
+.thumb-3 { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+.thumb-4 { background: linear-gradient(135deg, #373b44, #4286f4); }
+.thumb-5 { background: linear-gradient(135deg, #114357, #f29492); }
+.thumb-6 { background: linear-gradient(135deg, #1f4037, #99f2c8); }
+
+.timestamp {
+    background-color: rgba(0, 0, 0, 0.85);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.card-info {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #555555;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.video-title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
+.channel-name {
+    font-size: 13px;
+    color: #aaaaaa;
+}
+
+.stats {
+    font-size: 12px;
+    color: #aaaaaa;
+}
