@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №4 | Weekly Plan</title>
+    <!-- Підключення шрифтів: Montserrat для друкованих написів та Caveat для рукописного тексту -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lab4.css">
+</head>
+<body>
+
+    <div class="top-nav">
+        <a href="../index.html#labs">← Назад до списку лабораторних</a>
+    </div>
+
+    <div class="planner-page">
+        
+        <!-- ВЕРХНЯ ЧАСТИНА (GRID) -->
+        <header class="planner-header">
+            <div class="header-cell title-cell">
+                <h1>WEEKLY PLAN</h1>
+                <div class="week-field">
+                    <label for="week-input">WEEK OF</label>
+                    <input type="text" id="week-input">
+                </div>
+            </div>
+
+            <div class="header-cell habit-cell">
+                <span class="cell-label">HEALTHY HABIT</span>
+                <input type="text" class="habit-input">
+            </div>
+
+            <div class="header-cell checks-cell">
+                <label class="check-option">
+                    <input type="checkbox">
+                    <span>ROCKED IT</span>
+                </label>
+                <label class="check-option">
+                    <input type="checkbox">
+                    <span>ROOM FOR IMPROVEMENT</span>
+                </label>
+            </div>
+        </header>
+
+        <!-- ГОЛОВНА СІТКА ПЛАНЕРА (3 КОЛОНКИ ЗА ШАБЛОНОМ) -->
+        <main class="planner-body">
+            
+            <!-- КОЛОНКА 1: MONDAY, TUESDAY, WEDNESDAY -->
+            <section class="planner-col col-left">
+                <div class="day-block">
+                    <div class="block-bar">
+                        <span class="bar-title">MONDAY</span>
+                        <input type="checkbox" class="round-check">
+                    </div>
+                    <textarea class="ruled-textarea"></textarea>
+                </div>
+
+                <div class="day-block">
+                    <div class="block-bar">
+                        <span class="bar-title">TUESDAY</span>
+                        <input type="checkbox" class="round-check">
+                    </div>
+                    <textarea class="ruled-textarea"></textarea>
+                </div>
+
+                <div class="day-block">
+                    <div class="block-bar">
+                        <span class="bar-title">WEDNESDAY</span>
+                        <input type="checkbox" class="round-check">
+                    </div>
+                    <textarea class="ruled-textarea"></textarea>
+                </div>
+            </section>
+
+            <!-- КОЛОНКА 2: TO DO: TOP 3 GOALS & EVERYTHING ELSE -->
+            <section class="planner-col col-center">
+                <div class="todo-block goals-block">
+                    <div class="block-bar">
+                        <span class="bar-title">TO DO &bull; TOP 3 GOALS</span>
+                    </div>
+                    <div class="task-rows">
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                    </div>
+                </div>
+
+                <div class="todo-block else-block">
+                    <div class="block-bar">
+                        <span class="bar-title">EVERYTHING ELSE</span>
+                    </div>
+                    <div class="task-rows">
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- КОЛОНКА 3: THURSDAY, FRIDAY, SATURDAY, SUNDAY, NEXT WEEK -->
+            <section class="planner-col col-right">
+                <div class="day-block short">
+                    <div class="block-bar">
+                        <span class="bar-title">THURSDAY</span>
+                        <input type="checkbox" class="round-check">
+                    </div>
+                    <textarea class="ruled-textarea"></textarea>
+                </div>
+
+                <div class="day-block short">
+                    <div class="block-bar">
+                        <span class="bar-title">FRIDAY</span>
+                        <input type="checkbox" class="round-check">
+                    </div>
+                    <textarea class="ruled-textarea"></textarea>
+                </div>
+
+                <div class="weekend-grid">
+                    <div class="day-block mini">
+                        <div class="block-bar">
+                            <span class="bar-title">SATURDAY</span>
+                            <input type="checkbox" class="round-check">
+                        </div>
+                        <textarea class="ruled-textarea"></textarea>
+                    </div>
+                    <div class="day-block mini">
+                        <div class="block-bar">
+                            <span class="bar-title">SUNDAY</span>
+                            <input type="checkbox" class="round-check">
+                        </div>
+                        <textarea class="ruled-textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="next-week-block">
+                    <div class="block-bar">
+                        <span class="bar-title">NEXT WEEK</span>
+                    </div>
+                    <div class="task-rows">
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                        <div class="task-row"><input type="checkbox"><input type="text"></div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
