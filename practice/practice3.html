@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота №3 | YouTube Flexbox</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <!-- 1. Верхня панель (Header) -->
+    <header class="header">
+        <div class="header-left">
+            <button class="icon-btn" aria-label="Меню">&#9776;</button>
+            <div class="logo">
+                <span class="yt-icon">&#9654;</span>
+                <span class="yt-text">YouTube</span>
+            </div>
+        </div>
+
+        <div class="header-center">
+            <div class="search-box">
+                <input type="text" placeholder="Пошук">
+                <button class="search-btn">&#128269;</button>
+            </div>
+            <button class="icon-btn voice-btn">&#127908;</button>
+        </div>
+
+        <div class="header-right">
+            <button class="icon-btn">&#43; Створити</button>
+            <button class="icon-btn">&#128276;</button>
+            <div class="user-avatar">Д</div>
+        </div>
+    </header>
+
+    <!-- 2. Основна частина сторінки (Flex-контейнер) -->
+    <div class="main-layout">
+        
+        <!-- Лівий сайдбар -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <a href="#" class="sidebar-item active">
+                    <span class="item-icon">&#127968;</span>
+                    <span class="item-text">Головна</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="item-icon">&#9889;</span>
+                    <span class="item-text">Shorts</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="item-icon">&#128250;</span>
+                    <span class="item-text">Підписки</span>
+                </a>
+                <hr class="sidebar-divider">
+                <div class="sidebar-title">Ви</div>
+                <a href="#" class="sidebar-item">
+                    <span class="item-icon">&#128193;</span>
+                    <span class="item-text">Бібліотека</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="item-icon">&#128340;</span>
+                    <span class="item-text">Історія</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <span class="item-icon">&#9201;</span>
+                    <span class="item-text">Переглянути пізніше</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html#practices">← До списку робіт</a>
+            </div>
+        </aside>
+
+        <!-- Блок контенту з відео -->
+        <main class="content-area">
+            
+            <!-- Стрічка категорій (Chips) -->
+            <div class="tags-bar">
+                <button class="tag-btn active">Усі</button>
+                <button class="tag-btn">Музика</button>
+                <button class="tag-btn">Комп'ютерне програмування</button>
+                <button class="tag-btn">Відеоігри</button>
+                <button class="tag-btn">Новини</button>
+                <button class="tag-btn">Анімація</button>
+                <button class="tag-btn">Веб-дизайн</button>
+                <button class="tag-btn">Подкасти</button>
+                <button class="tag-btn">Нещодавно завантажені</button>
+            </div>
+
+            <!-- Гнучка сітка відеокарток (Flexbox grid) -->
+            <section class="video-grid">
+                
+                <!-- Картка 1 -->
+                <article class="video-card">
+                    <div class="thumbnail th-1">
+                        <span class="duration">18:24</span>
+                    </div>
+                    <div class="video-details">
+                        <div class="channel-avatar">IT</div>
+                        <div class="meta">
+                            <h3 class="video-title">Повний курс по Flexbox у CSS за 20 хвилин</h3>
+                            <p class="channel-name">Web Dev Academy &#10003;</p>
+                            <p class="video-stats">142 тис. переглядів &bull; 2 тижні тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 2 -->
+                <article class="video-card">
+                    <div class="thumbnail th-2">
+                        <span class="duration">12:05</span>
+                    </div>
+                    <div class="video-details">
+                        <div class="channel-avatar">CS</div>
+                        <div class="meta">
+                            <h3 class="video-title">Основи побудови комп'ютерних мереж та VLAN</h3>
+                            <p class="channel-name">Computer Science UA</p>
+                            <p class="video-stats">45 тис. переглядів &bull; 1 місяць тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 3 -->
+                <article class="video-card">
+                    <div class="thumbnail th-3">
+                        <span class="duration">25:40</span>
+                    </div>
+                    <div class="video-details">
+                        <div class="channel-avatar">JS</div>
+                        <div class="meta">
+                            <h3 class="video-title">Створення сучасного сайту з нуля на HTML &amp; CSS</h3>
+                            <p class="channel-name">Frontend Hub</p>
+                            <p class="video-stats">89 тис. переглядів &bull; 3 дні тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 4 -->
+                <article class="video-card">
+                    <div class="thumbnail th-4">
+                        <span class="duration">8:19</span>
+                    </div>
+                    <div class="video-details">
+                        <div class="channel-avatar">GH</div>
+                        <div class="meta">
+                            <h3 class="video-title">Як користуватися Git та GitHub: повний гід для початківців</h3>
+                            <p class="channel-name">Git Basics</p>
+                            <p class="video-stats">210 тис. переглядів &bull; 5 місяців тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 5 -->
+                <article class="video-card">
+                    <div class="thumbnail th-5">
+                        <span class="duration">34:10</span>
+                    </div>
+                    <div class="video-details">
+                        <div class="channel-avatar">UX</div>
+                        <div class="meta">
+                            <h3 class="video-title">Основи UI/UX дизайну та адаптивної верстки</h3>
+                            <p class="channel-name">Design Masters</p>
+                            <p class="video-stats">67 тис. переглядів &bull; 2 місяці тому</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Картка 6 -->
+                <article class="video-card">
+                    <div class="thumbnail th-6">
+                        <span class="duration">15:52</span>
+                    </div>
+                    <div class="video-details">
+                        <div class="channel-avatar">TG</div>
+                        <div class="meta">
+                            <h3 class="video-title">Огляд нових технологій веб-розробки 2026 року</h3>
+                            <p class="channel-name">Tech Trends</p>
+                            <p class="video-stats">33 тис. переглядів &bull; 1 день тому</p>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
