@@ -1,0 +1,258 @@
+/* 1. Базові налаштування та кастомний шрифт */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #2c3e50;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.page-header a {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.page-header a:hover {
+    text-decoration: underline;
+}
+
+/* Дріт клавіатури */
+.keyboard-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyboard-cable {
+    width: 14px;
+    height: 45px;
+    background-color: #8c8f94;
+    border-radius: 7px 7px 0 0;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* 2. Корпус клавіатури */
+.keyboard-case {
+    background: #9fa4a9;
+    padding: 24px 28px;
+    border-radius: 28px;
+    box-shadow: 
+        0 14px 28px rgba(0, 0, 0, 0.25),
+        inset 0 2px 4px rgba(255, 255, 255, 0.6),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+    border: 3px solid #82878d;
+    display: flex;
+    gap: 18px;
+}
+
+/* ===================================================
+   3. ЗАГАЛЬНА СТИЛІЗАЦІЯ КЛАВІШ (Тіні, Шрифти, Стани)
+   =================================================== */
+.key {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+    cursor: pointer;
+    outline: none;
+    
+    /* Об'ємна тінь для реалістичного вигляду клавіші */
+    box-shadow: 
+        0 4px 0 #b3b6ba,
+        0 5px 4px rgba(0, 0, 0, 0.28);
+    transition: all 0.08s ease;
+}
+
+/* Стан :hover (наведення курсору) */
+.key:hover {
+    background-color: #f7f9fa;
+    filter: brightness(1.02);
+}
+
+/* Стан :active (натискання клавіші - ефект зміщення вниз) */
+.key:active {
+    transform: translateY(3px);
+    box-shadow: 
+        0 1px 0 #8c8f94,
+        0 2px 2px rgba(0, 0, 0, 0.25);
+    background-color: #e9ecef;
+}
+
+.small-txt {
+    font-size: 9px;
+    font-weight: 600;
+}
+
+/* ===================================================
+   4. СЕКЦІЯ 1: ГОЛОВНИЙ БЛОК КЛАВІАТУРИ
+   =================================================== */
+.main-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.key-row {
+    display: flex;
+    gap: 6px;
+}
+
+/* Верхній функціональний рядок */
+.main-section .key-row:first-child {
+    margin-bottom: 8px;
+    gap: 14px;
+}
+
+.f-group {
+    display: flex;
+    gap: 6px;
+}
+
+/* Розміри базових та спеціальних клавіш */
+.key {
+    width: 38px;
+    height: 38px;
+}
+
+.key-esc { width: 38px; }
+.key-backspace { width: 68px; }
+.key-tab { width: 56px; }
+.key-enter { width: 50px; background-color: #fbfbfb; }
+.key-caps { width: 64px; }
+.key-lshift { width: 50px; }
+.key-rshift { width: 84px; }
+
+/* Нижній рядок */
+.bottom-row .key-ctrl { width: 54px; }
+.bottom-row .key-alt { width: 50px; }
+.bottom-row .key-space { flex-grow: 1; min-width: 200px; }
+.bottom-row .key-altgr { width: 50px; }
+.bottom-row .key-menu { width: 44px; }
+
+/* ===================================================
+   5. СЕКЦІЯ 2: СИСТЕМНІ КНОПКИ ТА СТРІЛКИ (GRID)
+   =================================================== */
+.middle-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sys-cluster {
+    display: grid;
+    grid-template-columns: repeat(3, 38px);
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.nav-cluster {
+    display: grid;
+    grid-template-columns: repeat(3, 38px);
+    grid-template-rows: repeat(2, 38px);
+    gap: 6px;
+}
+
+.arrows-cluster {
+    display: grid;
+    grid-template-columns: repeat(3, 38px);
+    grid-template-rows: repeat(2, 38px);
+    gap: 6px;
+}
+
+/* ===================================================
+   6. СЕКЦІЯ 3: ЦИФРОВИЙ БЛОК (NUMPAD GRID) ТА ІНДИКАТОРИ
+   =================================================== */
+.numpad-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* LED Панель індикаторів */
+.led-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #7b8086;
+    border-radius: 8px;
+    padding: 6px 12px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 8px;
+}
+
+.led-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.led-label {
+    font-size: 10px;
+    color: #e0e0e0;
+    font-weight: 700;
+}
+
+.led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #444;
+}
+
+.led.led-on {
+    background-color: #40ff00;
+    box-shadow: 0 0 6px #40ff00;
+}
+
+/* Сітка Numpad на CSS Grid */
+.numpad-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 38px);
+    grid-template-rows: repeat(5, 38px);
+    gap: 6px;
+}
+
+.num-plus {
+    grid-row: span 2;
+    height: 82px;
+}
+
+.num-enter {
+    grid-row: span 2;
+    height: 82px;
+}
+
+.num-zero {
+    grid-column: span 2;
+    width: 82px;
+}

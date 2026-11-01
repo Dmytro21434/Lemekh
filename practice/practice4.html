@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота №4 | Fullsize Keyboard Grid</title>
+    <!-- Підключення кастомного шрифту Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <h1>Практична робота №4. Full-size Клавіатура (CSS Grid)</h1>
+        <p><a href="../index.html#practices">← Повернутися до списку робіт</a></p>
+    </header>
+
+    <div class="keyboard-wrapper">
+        <div class="keyboard-cable"></div>
+        <div class="keyboard-case">
+            
+            <!-- Секція 1: Головний буквено-цифровий блок + F-клавіші -->
+            <div class="keyboard-section main-section">
+                <!-- Рядок Esc + Функціональні клавіші -->
+                <div class="key-row">
+                    <button class="key key-esc">Esc</button>
+                    <div class="f-group">
+                        <button class="key">F1</button>
+                        <button class="key">F2</button>
+                        <button class="key">F3</button>
+                        <button class="key">F4</button>
+                    </div>
+                    <div class="f-group">
+                        <button class="key">F5</button>
+                        <button class="key">F6</button>
+                        <button class="key">F7</button>
+                        <button class="key">F8</button>
+                    </div>
+                    <div class="f-group">
+                        <button class="key">F9</button>
+                        <button class="key">F10</button>
+                        <button class="key">F11</button>
+                        <button class="key">F12</button>
+                    </div>
+                </div>
+
+                <!-- Рядок цифр (~, 1, 2... Backspace) -->
+                <div class="key-row num-row">
+                    <button class="key">~<br>`</button>
+                    <button class="key">!<br>1</button>
+                    <button class="key">"<br>2</button>
+                    <button class="key">£<br>3</button>
+                    <button class="key">$<br>4</button>
+                    <button class="key">%<br>5</button>
+                    <button class="key">&<br>6</button>
+                    <button class="key">/<br>7</button>
+                    <button class="key">(<br>8</button>
+                    <button class="key">)<br>9</button>
+                    <button class="key">=<br>0</button>
+                    <button class="key">?<br>'</button>
+                    <button class="key">^<br>ì</button>
+                    <button class="key key-backspace">←</button>
+                </div>
+
+                <!-- Рядок Tab + QWERTY -->
+                <div class="key-row qwerty-row">
+                    <button class="key key-tab">↹</button>
+                    <button class="key">Q</button>
+                    <button class="key">W</button>
+                    <button class="key">E</button>
+                    <button class="key">R</button>
+                    <button class="key">T</button>
+                    <button class="key">Y</button>
+                    <button class="key">U</button>
+                    <button class="key">I</button>
+                    <button class="key">O</button>
+                    <button class="key">P</button>
+                    <button class="key">é<br>è [</button>
+                    <button class="key">*<br>+ ]</button>
+                    <button class="key key-enter">↵ Invio</button>
+                </div>
+
+                <!-- Рядок Caps Lock + ASDF -->
+                <div class="key-row asdf-row">
+                    <button class="key key-caps">Caps<br>Lock</button>
+                    <button class="key">A</button>
+                    <button class="key">S</button>
+                    <button class="key">D</button>
+                    <button class="key">F</button>
+                    <button class="key">G</button>
+                    <button class="key">H</button>
+                    <button class="key">J</button>
+                    <button class="key">K</button>
+                    <button class="key">L</button>
+                    <button class="key">ç<br>ò @</button>
+                    <button class="key">°<br>à #</button>
+                    <button class="key">§<br>ù</button>
+                </div>
+
+                <!-- Рядок Shift + ZXCV -->
+                <div class="key-row zxcv-row">
+                    <button class="key key-lshift">⇧</button>
+                    <button class="key">><br><</button>
+                    <button class="key">Z</button>
+                    <button class="key">X</button>
+                    <button class="key">C</button>
+                    <button class="key">V</button>
+                    <button class="key">B</button>
+                    <button class="key">N</button>
+                    <button class="key">M</button>
+                    <button class="key">:<br>,</button>
+                    <button class="key">;<br>.</button>
+                    <button class="key">_<br>-</button>
+                    <button class="key key-rshift">⇧</button>
+                </div>
+
+                <!-- Рядок Ctrl, Alt, Пробіл -->
+                <div class="key-row bottom-row">
+                    <button class="key key-ctrl">Ctrl</button>
+                    <button class="key key-alt">Alt</button>
+                    <button class="key key-space"></button>
+                    <button class="key key-altgr">Alt Gr</button>
+                    <button class="key key-menu">▤</button>
+                    <button class="key key-ctrl">Ctrl</button>
+                </div>
+            </div>
+
+            <!-- Секція 2: Системні клавіші та Стрілки -->
+            <div class="keyboard-section middle-section">
+                <!-- Верхні індикатори/кнопки: Stamp, Bloc Scorr, Pausa -->
+                <div class="sys-cluster">
+                    <button class="key small-txt">Stamp<br>R Sist</button>
+                    <button class="key small-txt">Bloc<br>Scorr</button>
+                    <button class="key small-txt">Pausa<br>Interr</button>
+                </div>
+
+                <!-- Навігаційний блок (Ins, Home, PgUp, Del, End, PgDn) -->
+                <div class="nav-cluster">
+                    <button class="key">Ins</button>
+                    <button class="key">↖</button>
+                    <button class="key">Pag↑</button>
+                    <button class="key">Canc</button>
+                    <button class="key">Fine</button>
+                    <button class="key">Pag↓</button>
+                </div>
+
+                <!-- Стрілки навігації -->
+                <div class="arrows-cluster">
+                    <div class="arrow-placeholder"></div>
+                    <button class="key arrow-up">↑</button>
+                    <div class="arrow-placeholder"></div>
+                    <button class="key arrow-left">←</button>
+                    <button class="key arrow-down">↓</button>
+                    <button class="key arrow-right">→</button>
+                </div>
+            </div>
+
+            <!-- Секція 3: Цифровий блок (Numpad) + Індикатори LED -->
+            <div class="keyboard-section numpad-section">
+                <!-- Індикатори Num Lock, Caps Lock, Scroll Lock -->
+                <div class="led-panel">
+                    <div class="led-item">
+                        <span class="led-label">1</span>
+                        <div class="led led-on"></div>
+                    </div>
+                    <div class="led-item">
+                        <span class="led-label">A</span>
+                        <div class="led"></div>
+                    </div>
+                    <div class="led-item">
+                        <span class="led-label">↓</span>
+                        <div class="led"></div>
+                    </div>
+                </div>
+
+                <!-- Сітка клавіш Numpad на Grid -->
+                <div class="numpad-grid">
+                    <button class="key small-txt">Bloc<br>Num</button>
+                    <button class="key">/</button>
+                    <button class="key">*</button>
+                    <button class="key">-</button>
+
+                    <button class="key">7<br>↖</button>
+                    <button class="key">8<br>↑</button>
+                    <button class="key">9<br>Pag↑</button>
+                    <button class="key num-plus">+</button>
+
+                    <button class="key">4<br>←</button>
+                    <button class="key">5</button>
+                    <button class="key">6<br>→</button>
+
+                    <button class="key">1<br>Fine</button>
+                    <button class="key">2<br>↓</button>
+                    <button class="key">3<br>Pag↓</button>
+                    <button class="key num-enter">Invio</button>
+
+                    <button class="key num-zero">0<br>Ins</button>
+                    <button class="key">.<br>Canc</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
