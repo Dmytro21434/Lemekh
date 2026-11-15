@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №6 — CSS Анімація та Спрайти Покемонів</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lab6.css">
+</head>
+<body>
+
+    <!-- Верхня панель навігації та керування анімацією -->
+    <header class="top-bar">
+        <a href="../index.html#labs" class="back-btn">← До списку робіт</a>
+        <div class="controls">
+            <button id="toggleAnimBtn" class="control-btn">⏸ Пауза</button>
+            <button id="boostBtn" class="control-btn accent">⚡ Прискорення</button>
+        </div>
+    </header>
+
+    <!-- Головна анімована сцена -->
+    <main class="scene" id="scene">
+        <!-- 1. Небо зі зміною кольору -->
+        <div class="sky-cycle"></div>
+
+        <!-- 2. Сонце -->
+        <div class="sun"></div>
+
+        <!-- 3. Хмари (Паралакс шар 1) -->
+        <div class="clouds">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+        </div>
+
+        <!-- 4. Гори на задньому плані (Паралакс шар 2) -->
+        <div class="mountains"></div>
+
+        <!-- 5. Дерева та пагорби (Паралакс шар 3) -->
+        <div class="trees"></div>
+
+        <!-- 6. Персонажі (Спрайти Покемонів з pokemondb.net) -->
+        <div class="characters-track">
+            <!-- Чарізард летить у небі -->
+            <div class="pokemon-flyer">
+                <div class="sprite-charizard" title="Charizard Sprite (pokemondb.net)"></div>
+            </div>
+
+            <!-- Пікачу біжить та стрибає по землі -->
+            <div class="pokemon-runner">
+                <div class="sprite-pikachu" title="Pikachu Sprite (pokemondb.net)"></div>
+                <div class="shadow"></div>
+            </div>
+
+            <!-- Покебол обертається попереду -->
+            <div class="pokeball-wrapper">
+                <div class="pokeball"></div>
+            </div>
+        </div>
+
+        <!-- 7. Земля та трава (Паралакс шар 4) -->
+        <div class="ground">
+            <div class="grass-strip"></div>
+            <div class="soil-pattern"></div>
+        </div>
+
+        <!-- Інформаційний блок HUD -->
+        <div class="hud-info">
+            <h1>POKÉMON CSS ADVENTURE</h1>
+            <p>Лабораторна робота №6 • Спрайти: <a href="https://pokemondb.net/sprites" target="_blank">PokemonDB</a></p>
+        </div>
+    </main>
+
+    <!-- JavaScript виключно для UX (Пауза / Прискорення) -->
+    <script>
+        const scene = document.getElementById('scene');
+        const toggleBtn = document.getElementById('toggleAnimBtn');
+        const boostBtn = document.getElementById('boostBtn');
+
+        toggleBtn.addEventListener('click', () => {
+            scene.classList.toggle('paused');
+            if (scene.classList.contains('paused')) {
+                toggleBtn.textContent = '▶ Старт';
+            } else {
+                toggleBtn.textContent = '⏸ Пауза';
+            }
+        });
+
+        boostBtn.addEventListener('click', () => {
+            scene.classList.toggle('boosted');
+            boostBtn.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

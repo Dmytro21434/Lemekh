@@ -1,0 +1,444 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    background-color: #1a1a2e;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* --- ВЕРХНЯ ПАНЕЛЬ --- */
+.top-bar {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.back-btn,
+.control-btn {
+    pointer-events: auto;
+    background: rgba(20, 24, 40, 0.85);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.back-btn:hover,
+.control-btn:hover {
+    background: rgba(35, 42, 70, 0.95);
+    border-color: #ffcb05;
+    transform: translateY(-2px);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn.accent.active {
+    background: #ffcb05;
+    color: #1d2c5e;
+    border-color: #1d2c5e;
+    font-weight: 700;
+}
+
+/* --- ГОЛОВНА СЦЕНА --- */
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Зупинка всіх анімацій при натисканні кнопки Пауза */
+.scene.paused * {
+    animation-play-state: paused !important;
+}
+
+/* 1. АНІМАЦІЯ НЕБА (Циклічна зміна кольору та освітлення) */
+.sky-cycle {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #4facfe 0%, #00f2fe 65%, #e0f7fa 100%);
+    animation: skyTransition 24s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes skyTransition {
+    0% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    50% {
+        filter: hue-rotate(-25deg) brightness(0.95);
+    }
+    100% {
+        filter: hue-rotate(165deg) saturate(1.4) brightness(0.8);
+    }
+}
+
+/* 2. СОНЦЕ */
+.sun {
+    position: absolute;
+    top: 12%;
+    right: 15%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff7a1 20%, #ffcb05 70%, rgba(255, 203, 5, 0) 100%);
+    box-shadow: 0 0 40px #ffcb05;
+    z-index: 2;
+    animation: sunPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes sunPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.12); }
+}
+
+/* 3. ХМАРИ (Паралакс шар 1) */
+.clouds {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 3;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 160px;
+    height: 50px;
+    top: 10%;
+    animation: moveCloud 32s linear infinite;
+}
+.cloud-1::before { width: 70px; height: 70px; top: -35px; left: 25px; }
+.cloud-1::after { width: 50px; height: 50px; top: -22px; right: 25px; }
+
+.cloud-2 {
+    width: 210px;
+    height: 60px;
+    top: 45%;
+    opacity: 0.75;
+    animation: moveCloud 45s linear infinite;
+    animation-delay: -15s;
+}
+.cloud-2::before { width: 90px; height: 90px; top: -45px; left: 35px; }
+.cloud-2::after { width: 65px; height: 65px; top: -30px; right: 30px; }
+
+.cloud-3 {
+    width: 130px;
+    height: 40px;
+    top: 25%;
+    opacity: 0.65;
+    animation: moveCloud 26s linear infinite;
+    animation-delay: -8s;
+}
+.cloud-3::before { width: 55px; height: 55px; top: -25px; left: 20px; }
+
+@keyframes moveCloud {
+    0% { transform: translateX(105vw); }
+    100% { transform: translateX(-250px); }
+}
+
+/* 4. ГОРИ (Паралакс шар 2) */
+.mountains {
+    position: absolute;
+    bottom: 130px;
+    left: 0;
+    width: 200%;
+    height: 220px;
+    z-index: 4;
+    background-image: 
+        linear-gradient(135deg, transparent 50%, #5c7cfa 50%),
+        linear-gradient(225deg, transparent 50%, #4c6ef5 50%),
+        linear-gradient(135deg, transparent 50%, #748ffc 50%),
+        linear-gradient(225deg, transparent 50%, #5c7cfa 50%);
+    background-size: 320px 220px;
+    background-position: 0 0, 160px 0, 240px 40px, 400px 40px;
+    background-repeat: repeat-x;
+    animation: scrollParallax 35s linear infinite;
+}
+
+/* 5. ДЕРЕВА ТА ПАГОРБИ (Паралакс шар 3) */
+.trees {
+    position: absolute;
+    bottom: 130px;
+    left: 0;
+    width: 200%;
+    height: 95px;
+    z-index: 5;
+    background: 
+        radial-gradient(circle at 40px 60px, #2b8a3e 35px, transparent 36px),
+        radial-gradient(circle at 80px 50px, #37b24d 42px, transparent 43px),
+        radial-gradient(circle at 125px 65px, #2f9e44 32px, transparent 33px);
+    background-size: 220px 95px;
+    background-repeat: repeat-x;
+    animation: scrollParallax 14s linear infinite;
+}
+
+.scene.boosted .trees {
+    animation-duration: 6s;
+}
+
+@keyframes scrollParallax {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* 6. ПЕРСОНАЖІ ТА СПРАЙТИ ПОКЕМОНІВ */
+.characters-track {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Спрайт Пікачу (PokemonDB animated sprite + CSS стрибок і погойдування) */
+.pokemon-runner {
+    position: absolute;
+    bottom: 122px;
+    left: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: pikachuJump 3.6s ease-in-out infinite;
+}
+
+.scene.boosted .pokemon-runner {
+    animation-duration: 1.8s;
+}
+
+.sprite-pikachu {
+    width: 120px;
+    height: 120px;
+    background-image: url('https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    /* Віддзеркалення спрайта вправо (у напрямку руху) */
+    transform: scaleX(-1);
+    image-rendering: pixelated;
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+    animation: runBounce 0.35s ease-in-out infinite alternate;
+}
+
+.scene.boosted .sprite-pikachu {
+    animation-duration: 0.18s;
+}
+
+.shadow {
+    width: 75px;
+    height: 14px;
+    background: rgba(0, 0, 0, 0.32);
+    border-radius: 50%;
+    margin-top: -6px;
+    animation: shadowScale 3.6s ease-in-out infinite;
+}
+
+@keyframes runBounce {
+    0% { transform: scaleX(-1) translateY(0) rotate(-2deg); }
+    100% { transform: scaleX(-1) translateY(-8px) rotate(3deg); }
+}
+
+@keyframes pikachuJump {
+    0%, 65%, 100% { transform: translateY(0); }
+    78% { transform: translateY(-115px); }
+    88% { transform: translateY(-20px); }
+}
+
+@keyframes shadowScale {
+    0%, 65%, 100% { transform: scale(1); opacity: 0.35; }
+    78% { transform: scale(0.45); opacity: 0.15; }
+}
+
+/* Спрайт Чарізарда в небі */
+.pokemon-flyer {
+    position: absolute;
+    top: 22%;
+    left: -180px;
+    animation: flyAcross 18s linear infinite;
+}
+
+.sprite-charizard {
+    width: 160px;
+    height: 160px;
+    background-image: url('https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scaleX(-1);
+    image-rendering: pixelated;
+    filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.25));
+    animation: hoverWave 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes flyAcross {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(100vw + 350px)); }
+}
+
+@keyframes hoverWave {
+    from { transform: scaleX(-1) translateY(-12px); }
+    to { transform: scaleX(-1) translateY(12px); }
+}
+
+/* Покебол, що обертається (чиста CSS-анімація) */
+.pokeball-wrapper {
+    position: absolute;
+    bottom: 132px;
+    left: 55%;
+    animation: pokeballBounce 1.2s ease-in-out infinite alternate;
+}
+
+.pokeball {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid #1a1a1a;
+    background: linear-gradient(180deg, #ee1515 0%, #ee1515 46%, #1a1a1a 46%, #1a1a1a 54%, #ffffff 54%, #ffffff 100%);
+    position: relative;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+    animation: spinPokeball 2.4s linear infinite;
+}
+
+.pokeball::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border: 3px solid #1a1a1a;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spinPokeball {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pokeballBounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-28px); }
+}
+
+/* 7. ЗЕМЛЯ ТА ТРАВА (Паралакс шар 4) */
+.ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    z-index: 8;
+}
+
+.grass-strip {
+    width: 200%;
+    height: 28px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #40c057,
+        #40c057 20px,
+        #51cf66 20px,
+        #51cf66 40px
+    );
+    border-top: 4px solid #2b8a3e;
+    border-bottom: 4px solid #5c3a21;
+    animation: scrollParallax 4s linear infinite;
+}
+
+.scene.boosted .grass-strip {
+    animation-duration: 1.8s;
+}
+
+.soil-pattern {
+    width: 200%;
+    height: 102px;
+    background-color: #8d5524;
+    background-image: 
+        radial-gradient(#6b3e18 15%, transparent 16%),
+        radial-gradient(#a66832 15%, transparent 16%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    animation: scrollParallax 4s linear infinite;
+}
+
+.scene.boosted .soil-pattern {
+    animation-duration: 1.8s;
+}
+
+/* --- HUD ЗАГОЛОВОК ВНИЗУ --- */
+.hud-info {
+    position: absolute;
+    bottom: 22px;
+    left: 24px;
+    z-index: 20;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #1a1a1a;
+}
+
+.hud-info h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: #ffcb05;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.hud-info p {
+    font-size: 13px;
+    color: #f1f3f5;
+}
+
+.hud-info a {
+    color: #ffcb05;
+    text-decoration: underline;
+}
+
+/* Адаптація під мобільні екрани */
+@media (max-width: 600px) {
+    .hud-info h1 {
+        font-size: 12px;
+    }
+    .pokemon-runner {
+        left: 10%;
+    }
+    .pokeball-wrapper {
+        left: 65%;
+    }
+}
