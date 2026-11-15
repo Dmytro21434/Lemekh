@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    color: #21243D;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 856px;
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+/* Фіксована панель у правому нижньому куті (position: fixed) */
+.fixed-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #21243D;
+    color: #FFFFFF;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.fixed-panel a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.fixed-panel a:hover {
+    color: #FF6464;
+}
+
+/* ===================================================
+   1. HEADER
+   =================================================== */
+.header {
+    padding: 27px 0;
+}
+
+.header-container {
+    max-width: 1032px;
+    margin: 0 auto;
+    padding: 0 18px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    gap: 33px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: #FF6464;
+}
+
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.burger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #21243D;
+}
+
+/* ===================================================
+   2. HERO SECTION
+   =================================================== */
+.hero {
+    padding: 113px 0 71px;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 105px;
+}
+
+.hero-text {
+    max-width: 506px;
+}
+
+.hero-text h1 {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 60px;
+    color: #21243D;
+    margin-bottom: 40px;
+}
+
+.hero-text p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #21243D;
+    margin-bottom: 38px;
+}
+
+.btn-resume {
+    display: inline-block;
+    background-color: #FF6464;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 29px;
+    padding: 9px 21px 10px 20px;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+}
+
+.btn-resume:hover {
+    background-color: #e55252;
+}
+
+.hero-image {
+    flex-shrink: 0;
+}
+
+.hero-image img {
+    width: 243px;
+    height: 243px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: -5px 13px 0px #EDF7FA;
+}
+
+/* ===================================================
+   3. RECENT POSTS
+   =================================================== */
+.recent-posts {
+    background-color: #EDF7FA;
+    padding: 7px 0 32px;
+}
+
+.section-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 400;
+    color: #21243D;
+}
+
+.view-all {
+    font-size: 16px;
+    font-weight: 400;
+    color: #00A8CC;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.post-card {
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 24px 21px 28px 23px;
+    box-shadow: 0px 4px 10px rgba(187, 225, 250, 0.25);
+}
+
+.post-card h3 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 38px;
+    margin-bottom: 17px;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 11px;
+}
+
+.post-card p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* ===================================================
+   4. FEATURED WORKS
+   =================================================== */
+.featured-works {
+    padding: 15px 0 83px;
+}
+
+.works-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.work-card {
+    display: flex;
+    gap: 18px;
+    padding: 29px 0 31px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.work-card:first-child {
+    padding-top: 12px;
+}
+
+.work-thumb {
+    width: 246px;
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-details h3 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 44px;
+    margin-bottom: 16px;
+}
+
+.work-details h3 a {
+    color: #21243D;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.work-details h3 a:hover {
+    color: #FF6464;
+}
+
+.work-meta {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-bottom: 17px;
+}
+
+.badge-year {
+    background-color: #142850;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 25px;
+    padding: 0 10px;
+    border-radius: 16px;
+}
+
+.work-tag {
+    font-size: 20px;
+    font-weight: 400;
+    color: #8695A4;
+}
+
+.work-details p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* ===================================================
+   5. FOOTER
+   =================================================== */
+.footer {
+    padding: 51px 0 54px;
+    text-align: center;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 26px;
+}
+
+.socials a {
+    color: #21243D;
+    display: inline-flex;
+    transition: color 0.2s;
+}
+
+.socials a:hover {
+    color: #FF6464;
+}
+
+.copyright {
+    font-size: 14px;
+    line-height: 21px;
+    color: #21243D;
+}
+
+/* ===================================================
+   6. МОБІЛЬНА АДАПТАЦІЯ (MOBILE DESIGN З МАКЕТУ FIGMA)
+   =================================================== */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 0 12px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .burger-btn {
+        display: flex;
+    }
+
+    .hero {
+        padding: 21px 0 58px;
+    }
+
+    .hero-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: 34px;
+    }
+
+    .hero-image img {
+        width: 170px;
+        height: 170px;
+        box-shadow: -3px 9px 0px #EDF7FA;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 21px;
+    }
+
+    .hero-text p {
+        margin-bottom: 27px;
+    }
+
+    .recent-posts {
+        padding: 0 0 38px;
+    }
+
+    .section-top {
+        justify-content: center;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .view-all {
+        display: none;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .post-card {
+        padding: 12px 19px 22px;
+    }
+
+    .post-card h3 {
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 12px;
+    }
+
+    .post-meta {
+        font-size: 16px;
+        gap: 20px;
+    }
+
+    .featured-works {
+        padding: 10px 0 100px;
+    }
+
+    .work-card {
+        flex-direction: column;
+        padding: 17px 0;
+    }
+
+    .work-thumb {
+        width: 100%;
+        height: 230px;
+    }
+
+    .work-details h3 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .badge-year {
+        font-size: 16px;
+    }
+
+    .work-tag {
+        font-size: 16px;
+    }
+}

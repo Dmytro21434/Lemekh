@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio UI - Home (Лабораторна робота №5)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lab5.css">
+</head>
+<body>
+
+    <!-- Фіксований блок з посиланням на макет Figma та поверненням до списку робіт -->
+    <div class="fixed-panel">
+        <a href="https://www.figma.com/design/gKZoWoleFgP35xvYu83Y2l/Portfolio-UI---Web---Mobile?node-id=0-1&p=f" target="_blank">Макет Figma</a>
+        <span>|</span>
+        <a href="../index.html#labs">← До списку робіт</a>
+    </div>
+
+    <!-- 1. HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <nav class="nav">
+                <a href="#works">Works</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <!-- Мобільне меню-бургер (Mobile версія макета) -->
+            <button class="burger-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Hi, I am John,<br>Creative Technologist</h1>
+                <p>
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                    Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                </p>
+                <a href="#" class="btn-resume">Download Resume</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/Ellipse 1.png" alt="John">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. RECENT POSTS -->
+    <section id="blog" class="recent-posts">
+        <div class="container">
+            <div class="section-top">
+                <span class="section-title">Recent posts</span>
+                <a href="#" class="view-all">View all</a>
+            </div>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <h3>Making a design system from scratch</h3>
+                    <div class="post-meta">
+                        <span>12 Feb 2020</span>
+                        <span class="sep">|</span>
+                        <span>Design, Pattern</span>
+                    </div>
+                    <p>
+                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                        Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                    </p>
+                </article>
+
+                <article class="post-card">
+                    <h3>Creating pixel perfect icons in Figma</h3>
+                    <div class="post-meta">
+                        <span>12 Feb 2020</span>
+                        <span class="sep">|</span>
+                        <span>Figma, Icon Design</span>
+                    </div>
+                    <p>
+                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                        Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED WORKS -->
+    <section id="works" class="featured-works">
+        <div class="container">
+            <div class="section-top">
+                <span class="section-title">Featured works</span>
+            </div>
+
+            <div class="works-list">
+                <!-- Work 1 -->
+                <article class="work-card">
+                    <div class="work-thumb">
+                        <img src="images/Rectangle 30.png" alt="Designing Dashboards">
+                    </div>
+                    <div class="work-details">
+                        <h3><a href="#">Designing Dashboards</a></h3>
+                        <div class="work-meta">
+                            <span class="badge-year">2020</span>
+                            <span class="work-tag">Dashboard</span>
+                        </div>
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Work 2 -->
+                <article class="work-card">
+                    <div class="work-thumb">
+                        <img src="images/Rectangle 32.png" alt="Vibrant Portraits of 2020">
+                    </div>
+                    <div class="work-details">
+                        <h3><a href="#">Vibrant Portraits of 2020</a></h3>
+                        <div class="work-meta">
+                            <span class="badge-year">2018</span>
+                            <span class="work-tag">Illustration</span>
+                        </div>
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Work 3 -->
+                <article class="work-card">
+                    <div class="work-thumb">
+                        <img src="images/Rectangle 34.png" alt="36 Days of Malayalam type">
+                    </div>
+                    <div class="work-details">
+                        <h3><a href="#">36 Days of Malayalam type</a></h3>
+                        <div class="work-meta">
+                            <span class="badge-year">2018</span>
+                            <span class="work-tag">Typography</span>
+                        </div>
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                            Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer id="contact" class="footer">
+        <div class="container footer-container">
+            <div class="socials">
+                <!-- Facebook -->
+                <a href="#" aria-label="Facebook">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor"><path d="M26.67 0H3.33C1.5 0 0 1.5 0 3.33v23.34C0 28.5 1.5 30 3.33 30h12.56V18.38h-3.9v-4.53h3.9v-3.34c0-3.87 2.36-5.98 5.82-5.98 1.65 0 3.07.12 3.49.18v4.05h-2.39c-1.88 0-2.24.89-2.24 2.2v2.89h4.48l-.58 4.53h-3.9V30h6.68c1.83 0 3.33-1.5 3.33-3.33V3.33C30 1.5 28.5 0 26.67 0z"/></svg>
+                </a>
+                <!-- Instagram -->
+                <a href="#" aria-label="Instagram">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor"><path d="M15 2.7c4 0 4.48.02 6.06.09 1.46.07 2.26.31 2.79.52.7.27 1.2.6 1.73 1.12.53.53.85 1.03 1.12 1.73.21.53.45 1.33.52 2.79.07 1.58.09 2.06.09 6.06s-.02 4.48-.09 6.06c-.07 1.46-.31 2.26-.52 2.79-.27.7-.6 1.2-1.12 1.73-.53.53-1.03.85-1.73 1.12-.53.21-1.33.45-2.79.52-1.58.07-2.06.09-6.06.09s-4.48-.02-6.06-.09c-1.46-.07-2.26-.31-2.79-.52-.7-.27-1.2-.6-1.73-1.12-.53-.53-.85-1.03-1.12-1.73-.21-.53-.45-1.33-.52-2.79-.07-1.58-.09-2.06-.09-6.06s.02-4.48.09-6.06c.07-1.46.31-2.26.52-2.79.27-.7.6-1.2 1.12-1.73.53-.53 1.03-.85 1.73-1.12.53-.21 1.33-.45 2.79-.52 1.58-.07 2.06-.09 6.06-.09zM15 0c-4.07 0-4.58.02-6.18.09-1.6.07-2.69.33-3.64.7-.99.38-1.82.9-2.66 1.73-.83.84-1.35 1.67-1.73 2.66-.37.95-.63 2.04-.7 3.64C.02 10.42 0 10.93 0 15s.02 4.58.09 6.18c.07 1.6.33 2.69.7 3.64.38.99.9 1.82 1.73 2.66.84.83 1.67 1.35 2.66 1.73.95.37 2.04.63 3.64.7 1.6.07 2.11.09 6.18.09s4.58-.02 6.18-.09c1.6-.07 2.69-.33 3.64-.7.99-.38 1.82-.9 2.66-1.73.83-.84 1.35-1.67 1.73-2.66.37-.95.63-2.04.7-3.64.07-1.6.09-2.11.09-6.18s-.02-4.58-.09-6.18c-.07-1.6-.33-2.69-.7-3.64-.38-.99-.9-1.82-1.73-2.66-.84-.83-1.67-1.35-2.66-1.73-.95-.37-2.04-.63-3.64-.7C19.58.02 19.07 0 15 0zm0 7.3a7.7 7.7 0 1 0 0 15.4 7.7 7.7 0 0 0 0-15.4zm0 12.7a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm9.8-13a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0z"/></svg>
+                </a>
+                <!-- Twitter -->
+                <a href="#" aria-label="Twitter">
+                    <svg width="37" height="30" viewBox="0 0 37 30" fill="currentColor"><path d="M36.92 3.55a15.1 15.1 0 0 1-4.35 1.19A7.6 7.6 0 0 0 35.9.55a15.16 15.16 0 0 1-4.81 1.84A7.57 7.57 0 0 0 18.2 9.29 21.48 21.48 0 0 1 2.57 1.38a7.57 7.57 0 0 0 2.34 10.1 7.52 7.52 0 0 1-3.43-.95v.1a7.57 7.57 0 0 0 6.07 7.42 7.6 7.6 0 0 1-3.42.13 7.58 7.58 0 0 0 7.07 5.26A15.19 15.19 0 0 1 0 26.6a21.42 21.42 0 0 0 11.6 3.4c13.92 0 21.53-11.53 21.53-21.53 0-.33-.01-.65-.02-.98a15.38 15.38 0 0 0 3.81-3.94z"/></svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="#" aria-label="LinkedIn">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="currentColor"><path d="M27.78 0H2.22C1 0 0 .97 0 2.17v25.66C0 29.03 1 30 2.22 30h25.56c1.22 0 2.22-.97 2.22-2.17V2.17C30 .97 29 0 27.78 0zM8.9 25.56H4.45V11.25H8.9v14.31zM6.67 9.3a2.58 2.58 0 1 1 0-5.16 2.58 2.58 0 0 1 0 5.16zm18.89 16.26h-4.45v-6.96c0-1.66-.03-3.8-2.31-3.8-2.31 0-2.67 1.81-2.67 3.68v7.08h-4.45V11.25h4.27v1.96h.06c.59-1.13 2.05-2.31 4.21-2.31 4.51 0 5.34 2.97 5.34 6.83v7.83z"/></svg>
+                </a>
+            </div>
+            <p class="copyright">Copyright ©2020 All rights reserved</p>
+        </div>
+    </footer>
+
+</body>
+</html>
